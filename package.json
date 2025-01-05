@@ -11,8 +11,8 @@
     "lint": "eslint",
     "test": "jest --coverage",
     "start": "node dis/src/app/main.js",
-    "build": "tsc",
-    "dev": "ts-node-dev --respawn --transpile-only src/app/main.ts",
+    "build": "tsc && tsc-alias -p tsconfig.json",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only  src/app/main.ts",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
@@ -41,5 +41,17 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.14",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "sequelize": "^6.37.5",
+    "sqlite3": "^5.1.7",
+    "ts-jest": "^29.2.5",
+    "tsc-alias": "^1.8.10",
+    "tsconfig-paths": "^4.2.0"
   }
 }
